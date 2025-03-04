@@ -38,5 +38,6 @@ public class CameraController : MonoBehaviour
     public void PickUpBox(GameObject box)
     {
         box.transform.position = player.position + Vector3.forward;
+        //box.transform.position = player.position + player.forward * 2f;
     }
 }

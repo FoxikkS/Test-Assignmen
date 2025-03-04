@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
     {
         _spawner = GetComponent<BoxSpawner>();
         _camera = FindObjectOfType<CameraController>();
-        spawnButton.onClick.AddListener(OnSpawnButton);
     }
 
     public void OnShowBox(GameObject box)
@@ -24,6 +23,7 @@ public class UIManager : MonoBehaviour
     
     public void OnSpawnButton()
     {
+        Debug.Log("Кнопка +");
         GameObject box = _spawner.SpawnBox();
         OnShowBox(box);
     }

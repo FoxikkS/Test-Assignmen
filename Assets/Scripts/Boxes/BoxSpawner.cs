@@ -8,13 +8,23 @@ public class BoxSpawner : MonoBehaviour
     public GameObject SpawnBox()
     {
         float rand = Random.Range(0f, 1f);
-        GameObject box;
+        GameObject boxPrefab;
 
-        if (rand < 0.6f) box = boxes[0];
-        else if (rand < 0.9f) box = boxes[1];
-        else box = boxes[2];
+        if (rand < 0.6f) boxPrefab = boxes[0];
+        else if (rand < 0.9f) boxPrefab = boxes[1];
+        else boxPrefab = boxes[2];
+        
+        GameObject spawnedBox = (GameObject)Instantiate(boxPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        GameObject spawnedBox = Instantiate(box, spawnPoint.position, Quaternion.identity);
+        if (spawnedBox == null)
+        {
+            Debug.LogError("Ошибка: Instantiate вернул null!");
+        }
+        else
+        {
+            Debug.Log("Box spawned at: " + spawnedBox.transform.position);
+        }
+
         return spawnedBox;
     }
 }
