@@ -14,17 +14,7 @@ public class BoxSpawner : MonoBehaviour
         else if (rand < 0.9f) boxPrefab = boxes[1];
         else boxPrefab = boxes[2];
         
-        GameObject spawnedBox = (GameObject)Instantiate(boxPrefab, spawnPoint.position, spawnPoint.rotation);
-
-        if (spawnedBox == null)
-        {
-            Debug.LogError("Ошибка: Instantiate вернул null!");
-        }
-        else
-        {
-            Debug.Log("Box spawned at: " + spawnedBox.transform.position);
-        }
-
+        GameObject spawnedBox = Instantiate(boxPrefab, spawnPoint.position, spawnPoint.rotation);
         return spawnedBox;
     }
 }
