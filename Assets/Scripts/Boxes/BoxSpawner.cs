@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
@@ -7,7 +5,7 @@ public class BoxSpawner : MonoBehaviour
     public GameObject[] boxes;
     public Transform spawnPoint;
 
-    public void SpawnBox()
+    public GameObject SpawnBox()
     {
         float rand = Random.Range(0f, 1f);
         GameObject box;
@@ -16,6 +14,7 @@ public class BoxSpawner : MonoBehaviour
         else if (rand < 0.9f) box = boxes[1];
         else box = boxes[2];
 
-        Instantiate(box, spawnPoint.position, Quaternion.identity);
+        GameObject spawnedBox = Instantiate(box, spawnPoint.position, Quaternion.identity);
+        return spawnedBox;
     }
 }
