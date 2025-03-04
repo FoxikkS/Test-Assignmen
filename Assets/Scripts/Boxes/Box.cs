@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Animator animator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void CloseBox() { animator.SetTrigger("Close"); }
+    
+    void OpenBox() { animator.SetTrigger("Open"); }
 }

@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Button spawnButton;
+
+    private BoxSpawner _spawner;
+
+    private void Start()
     {
-        
+        _spawner = GetComponent<BoxSpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnSpawnButton()
     {
-        
+        _spawner.SpawnBox();
     }
 }

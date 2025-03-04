@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] boxes;
+    public Transform spawnPoint;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnBox()
     {
-        
+        float rand = Random.Range(0f, 1f);
+        GameObject box;
+
+        if (rand < 0.6f) box = boxes[0];
+        else if (rand < 0.9f) box = boxes[1];
+        else box = boxes[2];
+
+        Instantiate(box, spawnPoint.position, Quaternion.identity);
     }
 }

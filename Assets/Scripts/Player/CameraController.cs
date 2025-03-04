@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform player;
+    public int sens;
+    public float rotationX = 0f;
+    
 
-    // Update is called once per frame
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X") * sens;
+        float mouseY = Input.GetAxis("Mouse Y") * sens;
         
+        rotationX -= mouseY;
+        rotationX = Mathf.Clamp(rotationX, -45, 45);
+
+        player.Rotate(Vector3.up * mouseX);
+        transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
     }
 }
