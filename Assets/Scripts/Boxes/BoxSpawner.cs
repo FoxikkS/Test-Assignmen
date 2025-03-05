@@ -5,7 +5,7 @@ public class BoxSpawner : MonoBehaviour
     public GameObject[] boxes;
     public Transform spawnPoint;
 
-    public GameObject SpawnBox()
+    public void SpawnBox()
     {
         float rand = Random.Range(0f, 1f);
         GameObject boxPrefab;
@@ -14,7 +14,6 @@ public class BoxSpawner : MonoBehaviour
         else if (rand < 0.9f) boxPrefab = boxes[1];
         else boxPrefab = boxes[2];
         
-        GameObject spawnedBox = Instantiate(boxPrefab, spawnPoint.position, spawnPoint.rotation);
-        return spawnedBox;
+        Instantiate(boxPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

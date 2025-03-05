@@ -17,9 +17,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * sens;
-        float mouseY = Input.GetAxis("Mouse Y") * sens;
+        //float mouseY = Input.GetAxis("Mouse Y") * sens;
 
-        rotationX -= mouseY;
+        //rotationX -= mouseY;
         rotationX = Mathf.Clamp(rotationX, -45, 45);
 
         player.Rotate(Vector3.up * mouseX);
@@ -38,6 +38,6 @@ public class CameraController : MonoBehaviour
     public void PickUpBox(GameObject box)
     {
         box.transform.position = player.position + Vector3.forward;
-        //box.transform.position = player.position + player.forward * 2f;
+        box.transform.SetParent(player);
     }
 }
